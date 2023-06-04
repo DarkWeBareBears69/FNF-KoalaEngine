@@ -50,7 +50,7 @@ _____________________________________
 
 ## Winning icons
 
-![](https://github.com/DarkWeBareBears69/FNF-KoalaEngine/assets/84250565/d4a85c8b-6b0b-48c1-8505-651b9feb4698)
+![](https://github.com/DarkWeBareBears69/FNF-KoalaEngine/assets/84250565/a85b5e07-2112-4901-8155-555be205fe75)
 
 (Taken from the most overused Psych fork called "OS Engine")
 
