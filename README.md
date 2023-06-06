@@ -57,6 +57,14 @@ _____________________________________
 
 Instead of 2 icons, there'll be three icons (losing, normal, winning). And yes, you can use double icons (without winning).
 
+## Multi-Sheet Characters
+
+[Taken from the original post from dombomb64]
+
+![](https://user-images.githubusercontent.com/49823019/243235580-4eb3f712-33c1-46c3-97af-8b7184b50757.mp4)
+
+This adds a new field to the character editor that lets you reference other sprite sheets for certain animations.
+
 ## Atleast one change to every week:
 ### Week 1:
   * New Dad Left sing sprite
