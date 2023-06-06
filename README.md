@@ -59,9 +59,9 @@ Instead of 2 icons, there'll be three icons (losing, normal, winning). And yes, 
 
 ## Multi-Sheet Characters
 
-[Taken from the original post from dombomb64 (a part of the video converted into GIF)](https://github.com/ShadowMario/FNF-PsychEngine/pull/12517)
-
 ![](https://github.com/DarkWeBareBears69/FNF-KoalaEngine/assets/84250565/38a9cdbc-6848-4b96-ac05-9dd7e96f0436)
+
+[Taken from the original post from dombomb64 (a part of the video converted into GIF)](https://github.com/ShadowMario/FNF-PsychEngine/pull/12517)
 
 This adds a new field to the character editor that lets you reference other sprite sheets for certain animations.
 
