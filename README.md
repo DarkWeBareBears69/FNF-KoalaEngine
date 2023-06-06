@@ -36,6 +36,7 @@ same goes for *Lua Scripts*, comment out or delete the line with `LUA_ALLOWED`, 
 * EliteMasterEric - hmm.json fix
 * Hackx2 - Automated VersionShit
 * not-weuz - haha i took his winning icon support coding
+* dombomb64 - Multi-Sheet Characters
 _____________________________________
 
 # Features
