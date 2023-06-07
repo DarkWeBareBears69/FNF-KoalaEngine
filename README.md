@@ -122,5 +122,5 @@ This adds a new field to the character editor that lets you reference other spri
 * You can reset your Score on Freeplay/Story Mode by pressing Reset button.
 * You can listen to a song or adjust Scroll Speed/Damage taken/etc. on Freeplay by pressing Space.
 
-## For any planned features
+## For any planned features & bugfixes
 You can check [this Trello board](https://trello.com/b/P4dS2fIV/koala-engine) out for any planned features...
