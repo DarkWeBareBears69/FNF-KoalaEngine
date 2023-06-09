@@ -1,3 +1,5 @@
+![](https://github.com/DarkWeBareBears69/FNF-KoalaEngine/assets/84250565/2d362a0f-f608-4368-82f8-5b78e8274cae)
+
 # Friday Night Funkin' - Koala Engine
 The shitty engine fork of the version 0.6.3 of the engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), due to its version 0.7.0 and above has a fully rewritten functionality.
 
