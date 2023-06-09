@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/DarkWeBareBears69/FNF-KoalaEngine/blob/main/art/koalaenginelogo.png" width="750"/></a>
+  <img src="https://github.com/DarkWeBareBears69/FNF-KoalaEngine/blob/main/art/koalaenginelogo.png" width="500"/></a>
 </p>
 
 # Friday Night Funkin' - Koala Engine
