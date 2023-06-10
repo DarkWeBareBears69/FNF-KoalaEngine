@@ -50,6 +50,7 @@ import flixel.group.FlxSpriteGroup;
 import flixel.input.keyboard.FlxKey;
 import Note.EventNote;
 import openfl.events.KeyboardEvent;
+import openfl.media.Video;
 import flixel.effects.particles.FlxEmitter;
 import flixel.effects.particles.FlxParticle;
 import flixel.util.FlxSave;
@@ -75,6 +76,11 @@ import sys.io.File;
 #if (hxCodec >= "2.6.1") import hxcodec.VideoHandler as MP4Handler;
 #elseif (hxCodec == "2.6.0") import VideoHandler as MP4Handler;
 #else import vlc.MP4Handler; #end
+#end
+#if WEBM_ALLOWED
+import webm.WebmPlayer;
+import BackgroundVideo;
+import VideoSubState;
 #end
 
 using StringTools;
@@ -334,6 +340,8 @@ class PlayState extends MusicBeatState
 
 		// for lua
 		instance = this;
+
+		removedVideo = false;
 
 		debugKeysChart = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 		debugKeysCharacter = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_2'));
@@ -1557,7 +1565,7 @@ class PlayState extends MusicBeatState
 
 	public function startVideo(name:String)
 	{
-		#if VIDEOS_ALLOWED
+		#if (VIDEOS_ALLOWED || WEBM_ALLOWED)
 		inCutscene = true;
 
 		var filepath:String = Paths.video(name);
@@ -1571,7 +1579,10 @@ class PlayState extends MusicBeatState
 			startAndEnd();
 			return;
 		}
-
+		#if WEBM_ALLOWED
+		openSubState(new VideoSubState(name, null, () -> startAndEnd()));
+		return;
+		#else
 		var video:MP4Handler = new MP4Handler();
 		video.playVideo(filepath);
 		video.finishCallback = function()
@@ -1579,6 +1590,7 @@ class PlayState extends MusicBeatState
 			startAndEnd();
 			return;
 		}
+		#end
 		#else
 		FlxG.log.warn('Platform not supported!');
 		startAndEnd();
@@ -2311,9 +2323,12 @@ class PlayState extends MusicBeatState
 	var lastReportedPlayheadPosition:Int = 0;
 	var songTime:Float = 0;
 
+	public var songStarted = false;
+
 	function startSong():Void
 	{
 		startingSong = false;
+		songStarted = true;
 
 		previousFrameTime = FlxG.game.ticks;
 		lastReportedPlayheadPosition = 0;
@@ -2322,6 +2337,9 @@ class PlayState extends MusicBeatState
 		FlxG.sound.music.pitch = playbackRate;
 		FlxG.sound.music.onComplete = finishSong.bind();
 		vocals.play();
+
+		if (useVideo)
+			GlobalVideo.get().resume();
 
 		if(startOnTime > 0)
 		{
@@ -2815,6 +2833,8 @@ class PlayState extends MusicBeatState
 	var canPause:Bool = true;
 	var limoSpeed:Float = 0;
 
+	public var removedVideo = false;
+
 	override public function update(elapsed:Float)
 	{
 		/*if (FlxG.keys.justPressed.NINE)
@@ -2822,6 +2842,15 @@ class PlayState extends MusicBeatState
 			iconP1.swapOldIcon();
 		}*/
 		callOnLuas('onUpdate', [elapsed]);
+
+		if (useVideo && GlobalVideo.get() != null)
+		{
+			if (GlobalVideo.get().ended && !removedVideo)
+			{
+				remove(videoSprite);
+				removedVideo = true;
+			}
+		}
 
 		switch (curStage)
 		{
@@ -3318,6 +3347,13 @@ class PlayState extends MusicBeatState
 
 	function openChartEditor()
 	{
+		if (useVideo)
+		{
+			GlobalVideo.get().stop();
+			remove(videoSprite);
+			removedVideo = true;
+		}
+
 		persistentUpdate = false;
 		paused = true;
 		cancelMusicFadeTween();
@@ -3859,10 +3895,17 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-
 	public var transitioning = false;
 	public function endSong():Void
 	{
+		if (useVideo)
+		{
+			GlobalVideo.get().stop();
+			PlayState.instance.remove(PlayState.instance.videoSprite);
+		}
+
+		endBGVideo();
+
 		//Should kill you if you tried to cheat
 		if(!startingSong) {
 			notes.forEach(function(daNote:Note) {
@@ -4471,6 +4514,71 @@ class PlayState extends MusicBeatState
 			ret[i] = Reflect.getProperty(controls, controlArray[i] + suffix);
 		}
 		return ret;
+	}
+
+	public var useVideo = false;
+	public static var webmHandler:WebmHandler;
+	public var videoSprite:FlxSprite;
+
+	public function backgroundVideo(source:String) // for background videos
+	{
+		#if WEBM_ALLOWED
+		useVideo = true;
+
+		var ourSource:String = "assets/videos/DO NOT DELETE OR GAME WILL CRASH/dontDelete.webm";
+		var str1:String = "WEBM SHIT";
+		webmHandler = new WebmHandler();
+		webmHandler.source(ourSource);
+		webmHandler.makePlayer();
+		webmHandler.webm.name = str1;
+
+		GlobalVideo.setWebm(webmHandler);
+
+		GlobalVideo.get().source(source);
+		GlobalVideo.get().clearPause();
+		if (GlobalVideo.isWebm)
+		{
+			GlobalVideo.get().updatePlayer();
+		}
+		GlobalVideo.get().show();
+
+		if (GlobalVideo.isWebm)
+			GlobalVideo.get().restart();
+		else
+			GlobalVideo.get().play();
+
+		var data = webmHandler.webm.bitmapData;
+
+		videoSprite = new FlxSprite(-470, -30).loadGraphic(data);
+
+		videoSprite.setGraphicSize(Std.int(videoSprite.width * 1.2));
+
+		remove(gf);
+		remove(boyfriend);
+		remove(dad);
+		add(videoSprite);
+		add(gf);
+		add(boyfriend);
+		add(dad);
+
+		trace('poggers');
+
+		if (!songStarted)
+			webmHandler.pause();
+		else
+			webmHandler.resume();
+		#end
+	}
+
+	public function endBGVideo():Void
+	{
+		var video:Dynamic = BackgroundVideo.get();
+
+		if (useVideo && video != null)
+		{
+			video.stop();
+			remove(videoSprite);
+		}
 	}
 
 	function noteMiss(daNote:Note):Void { //You didn't hit the key and let it go offscreen, also used by Hurt Notes
