@@ -28,7 +28,7 @@ using StringTools;
 class Paths
 {
 	inline public static var SOUND_EXT = #if web "mp3" #else "ogg" #end;
-	inline public static var VIDEO_EXT = "mp4";
+	public static final VIDEO_EXT = ['mp4', 'webm'];
 
 	#if MODS_ALLOWED
 	public static var ignoreModFolders:Array<String> = [
@@ -198,7 +198,18 @@ class Paths
 			return file;
 		}
 		#end
-		return 'assets/videos/$key.$VIDEO_EXT';
+		for (i in VIDEO_EXT) {
+			var path = 'assets/videos/$key.$i';
+			#if MODS_ALLOWED 
+			if (FileSystem.exists(path))
+			#else
+			if (Assets.exists(path))
+			#end
+			{
+				return path;
+			}
+		}
+		return 'assets/videos/$key.mp4';
 	}
 
 	static public function sound(key:String, ?library:String):Sound
@@ -415,8 +426,15 @@ class Paths
 		return modFolders('data/' + key + '.json');
 	}
 
-	inline static public function modsVideo(key:String) {
-		return modFolders('videos/' + key + '.' + VIDEO_EXT);
+	static public function modsVideo(key:String) {
+		for (i in VIDEO_EXT) {
+			var path = modFolders('videos/$key.$i');
+			if (FileSystem.exists(path))
+			{
+				return path;
+			}
+		}
+		return modFolders('videos/$key.mp4');
 	}
 
 	inline static public function modsSounds(path:String, key:String) {
