@@ -41,6 +41,7 @@ same goes for *Lua Scripts*, comment out or delete the line with `LUA_ALLOWED`, 
 * Hackx2 - Automated VersionShit
 * not-weuz - haha i took his winning icon support coding
 * dombomb64 - Multi-Sheet Characters
+* Joalor64 - WebM Video Support
 _____________________________________
 
 # Features
