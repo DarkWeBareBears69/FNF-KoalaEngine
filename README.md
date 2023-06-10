@@ -2,7 +2,7 @@
   <img src="https://github.com/DarkWeBareBears69/FNF-KoalaEngine/blob/main/art/koalaenginelogo.png" width="500"/></a>
 </p>
 
-# Friday Night Funkin' - Koala Engine
+# Friday Night Funkin' - Koala Engine (Project: Delta)
 The shitty engine fork of the version 0.6.3 of the engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), due to its version 0.7.0 and above has a fully rewritten functionality.
 
 ## Installation:
