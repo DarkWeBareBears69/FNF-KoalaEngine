@@ -5,6 +5,8 @@
 # Friday Night Funkin' - Koala Engine (Project: Delta)
 The shitty engine fork of the version 0.6.3 of the engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), due to its version 0.7.0 and above has a fully rewritten functionality.
 
+[You can download the nightly build here](https://nightly.link/DarkWeBareBears69/FNF-KoalaEngine/workflows/main/main)
+
 ## Installation:
 You must have [version 4.2.5 of Haxe](https://haxe.org/download/version/4.2.5/), seriously, stop using 4.1.5, it misses some stuff.
 
