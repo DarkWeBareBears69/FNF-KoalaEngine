@@ -45,6 +45,7 @@ same goes for *Lua Scripts*, comment out or delete the line with `LUA_ALLOWED`, 
 * dombomb64 - Multi-Sheet Characters
 * Joalor64 - WebM Video Support
 * eeveelover64 - FNF VR Judgements
+* steve-studios - Stage Editor
 _____________________________________
 
 # Features
