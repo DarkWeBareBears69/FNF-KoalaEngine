@@ -5,6 +5,8 @@
 # Friday Night Funkin' - Koala Engine (Project: Delta)
 The shitty engine fork of the version 0.6.3 of the engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), due to its version 0.7.0 and above has a fully rewritten functionality. Will be used on the upcoming update of [The Great Red Destruction mod](https://gamebanana.com/mods/369799)
 
+Reminder: I'm not trying to replace Psych Engine for some reason, I just want to make my own fork of the older version of the engine, due to reasons.
+
 [You can download the nightly build here](https://nightly.link/DarkWeBareBears69/FNF-KoalaEngine/workflows/main/main)
 
 ## Installation:
@@ -45,6 +47,7 @@ same goes for *Lua Scripts*, comment out or delete the line with `LUA_ALLOWED`, 
 * dombomb64 - Multi-Sheet Characters
 * Joalor64 - WebM Video Support
 * eeveelover64 - FNF VR Judgements
+* Burgerballs - Accurate Playback Rate Speed Song Length
 * steve-studios - Stage Editor
 _____________________________________
 
@@ -78,6 +81,7 @@ This adds a new field to the character editor that lets you reference other spri
 ### Week 1:
   * New Dad Left sing sprite
   * Unused stage lights are now used
+  * Dad Battle has a spotlight effect for the breakdown
 ### Week 2:
   * Both BF and Skid & Pump does "Hey!" animations
   * Thunders does a quick light flash and zooms the camera in slightly
@@ -100,9 +104,12 @@ This adds a new field to the character editor that lets you reference other spri
 * You can now chart "Event" notes, which are bookmarks that trigger specific actions that usually were hardcoded on the vanilla version of the game.
 * Your song's BPM can now have decimal values
 * You can manually adjust a Note's strum time if you're really going for milisecond precision
-* You can change a note's type on the Editor, it comes with two example types:
+* You can change a note's type on the Editor, it comes with five example types:
   * Alt Animation: Forces an alt animation to play, useful for songs like Ugh/Stress
   * Hey: Forces a "Hey" animation instead of the base Sing animation, if Boyfriend hits this note, Girlfriend will do a "Hey!" too.
+  * Hurt Notes: If Boyfriend hits this note, he plays a miss animation and loses some health.
+  * GF Sing: Rather than the character hitting the note and singing, Girlfriend sings instead.
+  * No Animation: Character just hits the note, no animation plays.
 
 ## Multiple editors to assist you in making your own Mod
 ![Screenshot_3](https://user-images.githubusercontent.com/44785097/144629914-1fe55999-2f18-4cc1-bc70-afe616d74ae5.png)
