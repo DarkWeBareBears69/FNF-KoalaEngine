@@ -561,6 +561,23 @@ class PlayState extends MusicBeatState
 				//PRECACHE SOUNDS
 				precacheList.set('thunder_1', 'sound');
 				precacheList.set('thunder_2', 'sound');
+				
+			case 'monster': //Week 2 - Monster
+				if(!ClientPrefs.lowQuality) {
+					monsterBG = new BGSprite('monster/monster_bg', -200, -100, ['monster bg', 'monsterLIGHTNING']);
+				} else {
+					monsterBG = new BGSprite('monster_bg_low', -200, -100);
+				}
+				add(monsterBG);
+
+				halloweenWhite = new BGSprite(null, -800, -400, 0, 0);
+				halloweenWhite.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.WHITE);
+				halloweenWhite.alpha = 0;
+				halloweenWhite.blend = ADD;
+
+				//PRECACHE SOUNDS
+				precacheList.set('thunder_1', 'sound');
+				precacheList.set('thunder_2', 'sound');
 
 			case 'philly': //Week 3
 				if(!ClientPrefs.lowQuality) {
@@ -864,7 +881,7 @@ class PlayState extends MusicBeatState
 
 		switch(curStage)
 		{
-			case 'spooky':
+			case 'spooky' | 'monster':
 				add(halloweenWhite);
 			case 'tank':
 				add(foregroundSprites);
@@ -5173,7 +5190,7 @@ class PlayState extends MusicBeatState
 				}
 		}
 
-		if (curStage == 'spooky' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
+		if (curStage == 'spooky' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset) or (curStage == 'monster' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
 		{
 			lightningStrikeShit();
 		}
