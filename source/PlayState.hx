@@ -5190,8 +5190,8 @@ class PlayState extends MusicBeatState
 				}
 		}
 
-		if (curStage == 'spooky') or (curStage == 'monster')
-		    if (FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
+		if (curStage == 'spooky' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset) or (curStage == 'monster' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
+		    if 
 		    {
 		     	lightningStrikeShit();
 		    }
