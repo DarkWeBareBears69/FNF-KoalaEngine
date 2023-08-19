@@ -5190,10 +5190,11 @@ class PlayState extends MusicBeatState
 				}
 		}
 
-		if (curStage == 'spooky' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset) or (curStage == 'monster' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
-		{
-			lightningStrikeShit();
-		}
+		if (curStage == 'spooky') or (curStage == 'monster')
+		    if (FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
+		    {
+		     	lightningStrikeShit();
+		    }
 		lastBeatHit = curBeat;
 
 		setOnLuas('curBeat', curBeat); //DAWGG?????
