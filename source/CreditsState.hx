@@ -84,6 +84,7 @@ class CreditsState extends MusicBeatState
 			['Koala Engine Team'],
 			['TheUnknownKoala4545', 'theunknownkoala', 'Creator of Koala Engine', 'https://www.youtube.com/@TheUnknownKoala4545', '0095FE'],
 			['notweuz_', 'weuz', 'Winning Icon Support', 'https://twitter.com/notweuz_', '8633F2'],
+			['kawai mtn dew', 'kawaimtndew', "Composer of Freeze (Fanmade Pause Menu)",	'https://twitter.com/kawaimtndew', 'C36C34'],
 			[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
