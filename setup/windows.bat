@@ -19,7 +19,7 @@ haxelib install hxjsonast 1.1.0 --quiet
 haxelib install lime 8.0.1 --quiet
 haxelib install openfl 9.2.1 --quiet
 haxelib install actuate --quiet
-haxelib install extension-webm -quiet
+haxelib git extension-webm https://github.com/KadeDev/extension-webm -quiet
 haxelib run lime rebuild extension-webm windows
 echo Finished!
 pause
