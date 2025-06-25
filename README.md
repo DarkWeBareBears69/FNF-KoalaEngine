@@ -8,7 +8,7 @@ The shitty engine fork of the version 0.6.3 of the engine originally used on [Mi
 Reminder: I'm not trying to replace Psych Engine for some reason, I just want to make my own fork of the older version of the engine, due to reasons.
 
 ## Installation:
-You must have [version 4.2.5 of Haxe](https://haxe.org/download/version/4.2.5/), seriously, stop using 4.1.5, it misses some stuff. Versions 4.3.x can work too, I tested it on version 4.3.4.
+You must have [version 4.2.5 of Haxe](https://haxe.org/download/version/4.2.5/), seriously, stop using 4.1.5, it misses some stuff. Versions 4.3.x can work too, I tested it on version 4.3.2.
 
 open up a Command Prompt/PowerShell or Terminal, type `haxelib install hmm`
 
