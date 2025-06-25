@@ -15,7 +15,7 @@ haxelib install hscript 2.5.0 --quiet
 haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex --quiet
 haxelib install hxCodec 2.5.1 --quiet
 haxelib git hxcpp https://github.com/DarkWeBareBears69/hxcpp-my-attempt-fix --quiet
-haxelib git hxjsonast 1.1.0 --quiet
+haxelib install hxjsonast 1.1.0 --quiet
 haxelib install lime 8.0.1 --quiet
 haxelib install openfl 9.2.1 --quiet
 haxelib install actuate --quiet
