@@ -7,8 +7,6 @@ The shitty engine fork of the version 0.6.3 of the engine originally used on [Mi
 
 Reminder: I'm not trying to replace Psych Engine for some reason, I just want to make my own fork of the older version of the engine, due to reasons.
 
-[You can download the nightly build here](https://nightly.link/DarkWeBareBears69/FNF-KoalaEngine/workflows/main/main)
-
 ## Installation:
 You must have [version 4.2.5 of Haxe](https://haxe.org/download/version/4.2.5/), seriously, stop using 4.1.5, it misses some stuff.
 
