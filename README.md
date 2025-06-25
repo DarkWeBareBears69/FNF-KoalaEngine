@@ -3,7 +3,7 @@
 </p>
 
 # Friday Night Funkin' - Koala Engine (Project: Delta)
-The shitty engine fork of the version 0.6.3 of the engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), due to its version 0.7.0 and above has a fully rewritten functionality. Will be used on the upcoming update of [The Great Red Destruction mod](https://gamebanana.com/mods/369799)
+The shitty engine fork of the version 0.6.3 of the engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), due to its version 0.7.0 and above has a fully rewritten functionality. Will be used on the unfinished builds of [The Great Red Destruction mod](https://gamebanana.com/mods/369799)
 
 Reminder: I'm not trying to replace Psych Engine for some reason, I just want to make my own fork of the older version of the engine, due to reasons.
 
